@@ -13,7 +13,7 @@ export const Response = ({ match }) => {
     useEffect(() => {
         console.log("entre al useeffec")
         dispatch(getParametro(id))
-    }, [dispatch,id,parametros])
+    }, [id])
 
     
     console.log("Parametros", parametros)

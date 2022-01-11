@@ -1,13 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { postParametro } from '../actions';
 import { useForm } from "react-hook-form";
+import { useHistory } from 'react-router';
 
 export const Formulario = () => {
 
     const parametros = useSelector(state => state.parametros);
     const dispatch = useDispatch();
     const { register, handleSubmit } = useForm();
+    const history = useHistory();
+
+    useEffect(() => {
+        if (parametros.redirect) {
+            history.push(parametros.redirect);
+        }
+    }, [parametros.redirect, history])
 
     const onSubmit = data => {
         dispatch(postParametro(data));

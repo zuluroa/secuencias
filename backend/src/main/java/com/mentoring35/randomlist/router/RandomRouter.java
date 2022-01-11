@@ -29,7 +29,7 @@ public class RandomRouter {
     public Mono<Random> forNumber(@RequestBody RequestParamsDTO request){
         return Mono.just(new Random()).map(entity -> {
             entity.setDate(new Date());
-            entity.setOriginalList(IntStream.range(request.getValorInicial(), request.getValorMaximo())
+            entity.setOriginalList(IntStream.range(request.getValorInicial(), request.getValorMaximo()+1)
                     .mapToObj(String::valueOf)
                     .collect(Collectors.joining(",")));
             return entity;

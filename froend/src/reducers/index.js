@@ -4,8 +4,9 @@ import * as actions from '../actions'
 export const initialState = {
     loading: false,
     hasErrors: false,
-    parametros: []
-  }
+    parametros: [],
+    redirect: null
+    }
   
 function parametroReducer(state = initialState, action) {
     switch (action.type) {

@@ -35,7 +35,7 @@ export function postParametro(parametros) {
      return async dispatch => {
          dispatch(loading())
          try {
-             const response = await fetch(`${BASE_URL}/new`,
+             const response = await fetch(`${BASE_URL}new`,
                  {
                      method: 'POST',
                      mode: 'cors',
@@ -46,7 +46,7 @@ export function postParametro(parametros) {
                  }
              )
              const data = await response.json()
-             dispatch(success({redirect: `/question/${data.id}`}));
+             dispatch(success({redirect: `/respuesta/${data.id}`}));
          } catch (error) {
              dispatch(failure())
          }
