@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router';
-import { Link } from 'react-router-dom';
 import { getParametro } from '../actions';
 
 
@@ -12,7 +10,9 @@ export const Response = ({ match }) => {
     const { id } = match.params;
     console.log("ID ENVIADO POR PARAMETROS", id)
 
-    const history = useHistory();
+    const regresar = () => {
+        window.location.href = "/";
+    }
 
     useEffect(() => {
         dispatch(getParametro(id))
@@ -36,7 +36,7 @@ export const Response = ({ match }) => {
                     </div>)}
             </div>
             <br />
-            <button className='btn btn-primary' onClick={() => <Link to="/" />}>Regresar</button>
+            <button className='btn btn-primary' onClick={() => regresar()}>Regresar</button>
         </div>
     )
 }

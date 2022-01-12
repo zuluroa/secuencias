@@ -9,13 +9,11 @@ import java.util.List;
 @Document
 public class Random {
 
-
     @Id
     private String id;
     private Date date;
     private String originalList;
     private List<List<String>> randomList;
-    private String list;
     private Parametros parametros;
 
     public Date getDate() {
@@ -49,15 +47,6 @@ public class Random {
     public void setRandomList(List<List<String>> randomList) {
         this.randomList = randomList;
     }
-
-    public String getList() {
-        return list;
-    }
-
-    public void setList(String list) {
-        this.list = list;
-    }
-
 
     public Parametros getParametros() {
         return parametros;

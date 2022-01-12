@@ -2,15 +2,26 @@ package com.mentoring35.randomlist.model;
 
 import com.mentoring35.randomlist.collection.Parametros;
 
+import java.util.List;
+
 public class RequestDTO {
 
-    private String list;
+    private String id;
+    private List<List<String>> randomList;
 
-    public String getList() {
-        return list;
+    public String getId() {
+        return id;
     }
 
-    public void setList(String list) {
-        this.list = list;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public List<List<String>> getRandomList() {
+        return randomList;
+    }
+
+    public void setRandomList(List<List<String>> randomList) {
+        this.randomList = randomList;
     }
 }
