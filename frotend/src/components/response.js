@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 import { getParametro } from '../actions';
 
 
@@ -7,26 +9,24 @@ export const Response = ({ match }) => {
 
     const parametros = useSelector(state => state.parametros);
     const dispatch = useDispatch();
-    const { id } =  match.params ;
+    const { id } = match.params;
     console.log("ID ENVIADO POR PARAMETROS", id)
 
+    const history = useHistory();
+
     useEffect(() => {
-        console.log("entre al useeffec")
         dispatch(getParametro(id))
     }, [id])
 
-    
-    console.log("Parametros", parametros)
-
     return (
-        <div>
-            Lista random:
+        <div className='container-md shadow p-4 mb-3 bg-white rounded form-group mx-10'>
+            <h5 className='text-center mb-3'>Lista random: </h5>
             <div className="row">
-                {parametros?.data?.randomList?.map(lista =>
+                {parametros?.data?.randomList?.map((lista, key) =>
                     <div className="col-md-auto">
                         <ul id='columnas' >
                             Columna
-                            {lista.map(numero =>
+                            {lista.map((numero, key) =>
                                 <div>
                                     {numero}
                                 </div>
@@ -35,7 +35,8 @@ export const Response = ({ match }) => {
                         </ul>
                     </div>)}
             </div>
-            <br></br>
+            <br />
+            <button className='btn btn-primary' onClick={() => <Link to="/" />}>Regresar</button>
         </div>
     )
 }
